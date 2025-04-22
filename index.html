@@ -11,75 +11,161 @@
       border-radius: 5px;
       padding: 15px;
       margin-bottom: 20px;
+      background-color: #fff;
     }
     .property-image {
       width: 100%;
       height: auto;
       border-radius: 5px;
     }
+    header, footer {
+      background-color: #343a40;
+      color: #fff;
+      padding: 15px 0;
+    }
+    footer a {
+      color: #ccc;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Шапка -->
+  <header class="text-center">
+    <div class="container">
+      <h2>Застройщик «Горизонт»</h2>
+      <p>Современные жилые комплексы в центре города. Более 15 лет на рынке недвижимости.</p>
+    </div>
+  </header>
+
   <div class="container my-4">
     <h1 class="mb-4">Доступные объекты</h1>
+    <!-- Фильтр -->
+    <form class="row g-3 mb-4" id="filterForm">
+      <div class="col-md-3">
+        <label for="minPrice" class="form-label">Мин. цена (₽)</label>
+        <input type="number" class="form-control" id="minPrice" placeholder="от">
+      </div>
+      <div class="col-md-3">
+        <label for="maxPrice" class="form-label">Макс. цена (₽)</label>
+        <input type="number" class="form-control" id="maxPrice" placeholder="до">
+      </div>
+      <div class="col-md-3">
+        <label for="minArea" class="form-label">Мин. площадь (м²)</label>
+        <input type="number" class="form-control" id="minArea" placeholder="от">
+      </div>
+      <div class="col-md-3">
+        <label for="maxArea" class="form-label">Макс. площадь (м²)</label>
+        <input type="number" class="form-control" id="maxArea" placeholder="до">
+      </div>
+      <div class="col-md-3">
+        <label for="corpus" class="form-label">Корпус</label>
+        <select class="form-select" id="corpus">
+          <option value="">Все</option>
+          <option value="2">Корпус 2</option>
+          <option value="3">Корпус 3</option>
+          <option value="4">Корпус 4</option>
+        </select>
+      </div>
+      <div class="col-12 text-end">
+        <button type="button" class="btn btn-primary mt-2" onclick="filterCards()">Применить фильтр</button>
+      </div>
+    </form>
+
     <div class="row">
-      <!-- Повторите этот блок для каждого объекта -->
       <div class="col-md-4">
-        <div class="property-card">
+        <div class="property-card" data-price="13000000" data-area="21" data-corpus="2">
           <img src="floor_plan_1.png" alt="Изображение объекта" class="property-image mb-3">
           <h5>Студия</h5>
+          <p>Корпус: 2 </p>
           <p>Площадь: 21 м²</p>
           <p>Цена: 13 000 000 ₽</p>
           <a href="flat101.html" class="btn btn-primary">Подробнее</a>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="property-card">
+        <div class="property-card" data-price="16780000" data-area="54.6" data-corpus="2">
           <img src="floor_plan_2.png" alt="Изображение объекта" class="property-image mb-3">
           <h5>3-комнатная евро</h5>
+          <p>Корпус: 2 </p>
           <p>Площадь: 54,6 м²</p>
           <p>Цена: 16 780 000 ₽</p>
           <a href="flat102.html" class="btn btn-primary">Подробнее</a>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="property-card">
+        <div class="property-card" data-price="39000000" data-area="149.86" data-corpus="3">
           <img src="floor_plan_3.png" alt="Изображение объекта" class="property-image mb-3">
           <h5>5-комнатная</h5>
+          <p>Корпус: 3 </p>
           <p>Площадь: 149,86 м²</p>
           <p>Цена: 39 000 000 ₽</p>
           <a href="flat103.html" class="btn btn-primary">Подробнее</a>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="property-card">
+        <div class="property-card" data-price="16200000" data-area="50.68" data-corpus="3">
           <img src="floor_plan_4.png" alt="Изображение объекта" class="property-image mb-3">
           <h5>2-комнатная евро</h5>
+          <p>Корпус: 3 </p>
           <p>Площадь: 50,68 м²</p>
           <p>Цена: 16 200 000 ₽</p>
           <a href="flat104.html" class="btn btn-primary">Подробнее</a>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="property-card">
+        <div class="property-card" data-price="17500000" data-area="65.01" data-corpus="3">
           <img src="floor_plan_5.png" alt="Изображение объекта" class="property-image mb-3">
           <h5>3-комнатная евро</h5>
+          <p>Корпус: 3 </p>
           <p>Площадь: 65,01 м²</p>
           <p>Цена: 17 500 000 ₽</p>
           <a href="flat105.html" class="btn btn-primary">Подробнее</a>
         </div>
       </div>
       <div class="col-md-4">
-        <div class="property-card">
+        <div class="property-card" data-price="15890000" data-area="43.3" data-corpus="4">
           <img src="floor_plan_6.png" alt="Изображение объекта" class="property-image mb-3">
           <h5>2-комнатная евро</h5>
+          <p>Корпус: 4 </p>
           <p>Площадь: 43,3 м²</p>
           <p>Цена: 15 890 000 ₽</p>
           <a href="flat106.html" class="btn btn-primary">Подробнее</a>
         </div>
       </div>
-      <!-- Конец блока объекта -->
     </div>
   </div>
+  <!-- Футер -->
+  <footer class="text-center">
+    <div class="container">
+      <p>&copy; 2025 «Горизонт». Все данные вымышлены.</p>
+      <p>г. Санкт-Петербург, ул. Архитектурная, д. 7 | Тел.: +7 (123) 123-45-67 | <a href="mailto:info@gorizonttest.ru">info@gorizonttest.ru</a></p>
+    </div>
+  </footer>
+
+  <!-- JS фильтрация -->
+  <script>
+    function filterCards() {
+      const minPrice = parseFloat(document.getElementById('minPrice').value) || 0;
+      const maxPrice = parseFloat(document.getElementById('maxPrice').value) || Infinity;
+      const minArea = parseFloat(document.getElementById('minArea').value) || 0;
+      const maxArea = parseFloat(document.getElementById('maxArea').value) || Infinity;
+      const selectedCorpus = document.getElementById('corpus').value;
+
+      document.querySelectorAll('.property-card').forEach(card => {
+        const price = parseFloat(card.dataset.price);
+        const area = parseFloat(card.dataset.area);
+        const corpus = card.dataset.corpus;
+
+        const show = price >= minPrice && price <= maxPrice &&
+                     area >= minArea && area <= maxArea &&
+                     (selectedCorpus === '' || corpus === selectedCorpus);
+
+        card.parentElement.style.display = show ? '' : 'none';
+      });
+    }
+  </script>
+
 </body>
 </html>
